@@ -26,11 +26,16 @@ class Task(db.Model):
 @app.route('/',methods=['GET','POST'])
 def index():
      if request.method == 'POST':
-            print(request.form['title'])
-            todo = Task(title=request.form['title'], desc=request.form['desc']);
-            #adding the object to the database
-            db.session.add(todo)
-            db.session.commit()
+            title=request.form['title']
+            desc=request.form['desc']
+            if(title and desc):
+                #creating the object of Task class
+                todo = Task(title=title, desc=desc);
+                #adding the object to the database
+                db.session.add(todo)
+                db.session.commit()
+                flash("Task added successfully!", "success")
+            return redirect('/')
      #displaying all task in index.html
      alltodo = Task.query.all()
      #creating the object of Task class
