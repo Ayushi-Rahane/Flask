@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask import request
 from flask import redirect
+from flask import flash
 app = Flask(__name__)
 
 #database configuration
