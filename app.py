@@ -35,7 +35,7 @@ def index():
                 #adding the object to the database
                 db.session.add(todo)
                 db.session.commit()
-                flash("Task added successfully!", "success")
+                
             return redirect('/')
      #displaying all task in index.html
      alltodo = Task.query.all()
