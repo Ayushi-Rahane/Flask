@@ -22,6 +22,7 @@ class Task(db.Model):
     def __repr__(self) -> str:
         return f"{self.sno} - {self.title}"
 
+#to read the task and display it on the index.html
 @app.route('/',methods=['GET','POST'])
 def index():
      if request.method == 'POST':
@@ -35,6 +36,7 @@ def index():
      #creating the object of Task class
      return render_template('index.html', alltodo=alltodo)
 
+#to delete the task
 @app.route('/delete/<int:sno>')
 def delete(sno):
     task = Task.query.filter_by(sno=sno).first()
@@ -43,6 +45,17 @@ def delete(sno):
     return redirect('/')
 
 
+@app.route('/update/<int:sno>', methods=['GET','POST'])
+def update(sno):
+    if request.method == 'POST':
+        task = Task.query.filter_by(sno=sno).first()
+        task.title = request.form['title']
+        task.desc = request.form['desc']
+        db.session.add(task)
+        db.session.commit()
+        return redirect('/')
+    task = Task.query.filter_by(sno=sno).first()
+    return render_template('update.html', task=task)    
 
 @app.route('/product')
 def product():

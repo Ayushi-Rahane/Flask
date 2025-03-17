@@ -1,0 +1,1 @@
+console.log("Js file from static folder is added successfully..");
