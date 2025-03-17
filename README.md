@@ -6,8 +6,8 @@ A simple To-Do List web application built using **Flask** and **SQLite**. Users 
 
 🔗 **Live App:** [To-Do List App](https://to-do-listapp-0c84141d460d.herokuapp.com/)
 
-![To-Do List App Screenshot](screenshot1.png)
-![To-Do List App Screenshot](screenshot2.png)
+![To-Do List App Screenshot](Readme/Screenshot (330).png)
+![To-Do List App Screenshot](Readme/Screenshot (331).png)
 
 ---
 
