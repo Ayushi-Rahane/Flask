@@ -74,7 +74,7 @@ App will be available at http://127.0.0.1:5000/.
 
 ## 📩 Contact
 💡 Suggestions & feedback are welcome!
-📧 Email: ayushirahane2021@example.com
+📧 Email: ayushirahane2021@gmail.com
 🔗 GitHub: Ayushi-Rahane
 
 
