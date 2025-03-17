@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask import request
+from flask import redirect
 app = Flask(__name__)
 
 #database configuration
@@ -29,10 +30,19 @@ def index():
             #adding the object to the database
             db.session.add(todo)
             db.session.commit()
-            #displaying all task in index.html
-            alltodo = Task.query.all()
+     #displaying all task in index.html
+     alltodo = Task.query.all()
      #creating the object of Task class
      return render_template('index.html', alltodo=alltodo)
+
+@app.route('/delete/<int:sno>')
+def delete(sno):
+    task = Task.query.filter_by(sno=sno).first()
+    db.session.delete(task)
+    db.session.commit()
+    return redirect('/')
+
+
 
 @app.route('/product')
 def product():
